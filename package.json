@@ -1,0 +1,38 @@
+{
+  "name": "cypress-orchardcore",
+  "version": "0.0.1",
+  "description": "Cypress commands for Orchard Core",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jptissot/cypress-orchardcore.git"
+  },
+  "keywords": [
+    "cypress",
+    "orchard-core",
+    "cms",
+    "dotnet-core",
+    "testing"
+  ],
+  "author": "Jean-Philippe Tissot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jptissot/cypress-orchardcore/issues"
+  },
+  "homepage": "https://github.com/jptissot/cypress-orchardcore#readme",
+  "dependencies": {
+    "find-up": "^5.0.0",
+    "chalk": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "rollup": "^2.32.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
