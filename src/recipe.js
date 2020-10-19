@@ -1,5 +1,5 @@
 
-Cypress.Commands.add("runRecipe", (prefix, filterValue) => {
+Cypress.Commands.add("runRecipe", ({ prefix }, filterValue) => {
   cy.visit(`${prefix}/Admin/Recipes`);
   cy.get(`[data-filter-value*="${filterValue}"]`)
     .find('a:contains("Run")')
@@ -8,7 +8,7 @@ Cypress.Commands.add("runRecipe", (prefix, filterValue) => {
   cy.get("#modalOkButton").click();
 });
 
-Cypress.Commands.add("uploadRecipeJson", (prefix, fixturePath) => {
+Cypress.Commands.add("uploadRecipeJson", ({ prefix }, fixturePath) => {
   cy.fixture(fixturePath).then((data) => {
     cy.visit(`${prefix}/Admin/DeploymentPlan/Import/Json`);
     cy.get('#Json').invoke('val', JSON.stringify(data)).trigger('input',{force: true});

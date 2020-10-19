@@ -1,46 +1,41 @@
-import babel from 'rollup-plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import pkg from './package.json';
+import commonjs from 'rollup-plugin-commonjs';
 
-const getPlugins = ({ uglify = false } = {}) => {
-  const plugins = [
-    babel({
-      exclude: 'node_modules/**',
-    }),
-  ]
-  return uglify ? [terser(), ...plugins] : plugins
-}
+const config = [
+    {
+        input: './src/index.js',
+        output: [
+            {
+                file: pkg.main,
+                format: 'cjs',
+                globals: {
+                    Cypress: 'cypress',
+                },
+            },
+            { file: pkg.module, format: 'es' },
+        ],
+        plugins: [
+            // Compile to commonjs and bundle
+            commonjs()
+        ],
+    },
+    {
+      input: './src/utils.js',
+      output: [
+          {
+              file: 'utils.js',
+              format: 'cjs',
+              globals: {
+                  Cypress: 'cypress',
+              },
+          },
+          { file: 'utils.mjs', format: 'es' },
+      ],
+      plugins: [
+          // Compile to commonjs and bundle
+          commonjs()
+      ],
+  }
+];
 
-export default [{
-  input: 'src/index.js',
-  plugins: getPlugins({ uglify: true }),
-  output: {
-    file: 'dist/index.min.js',
-    name: 'index',
-    format: 'umd',
-  }
-}, {
-  input: 'src/index.js',
-  plugins: getPlugins(),
-  output: {
-    file: 'dist/index.js',
-    name: 'index',
-    format: 'umd',
-  }
-},
-{
-  input: 'src/utils.js',
-  plugins: getPlugins({ uglify: true }),
-  output: {
-    file: 'dist/utils.min.js',
-    name: 'utils',
-    format: 'umd',
-  }
-}, {
-  input: 'src/utils.js',
-  plugins: getPlugins(),
-  output: {
-    file: 'dist/utils.js',
-    name: 'utils',
-    format: 'umd',
-  }
-}]
+module.exports = config;

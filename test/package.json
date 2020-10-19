@@ -1,17 +1,19 @@
 {
-  "devDependencies": {
-    "cypress": "^5.3.0",
-    "rimraf": "3.0.2"
-  },
-  "dependencies": {},
+  "private": "true",
   "scripts": {
-    "build": "node -e \"require('./run_cypress').build('./OrchardCore.Cypress.Web')\"",
-    "clean": "node -e \"require('./run_cypress').clean('./OrchardCore.Cypress.Web')\"",
-    "host": "node -e \"require('./run_cypress').host('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
+    "oc:build": "node -e \"require('./run_cypress').build('./OrchardCore.Cypress.Web')\"",
+    "oc:clean": "node -e \"require('./run_cypress').clean('./OrchardCore.Cypress.Web')\"",
+    "oc:host": "node -e \"require('./run_cypress').host('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
     "test": "node -e \"require('./run_cypress').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
     "test:clean": "node -e \"require('./run_cypress').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll', true)\"",
     "test:clean-build": "node -e \"require('./run_cypress').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll', true, true)\"",
     "cypress:run": "cypress run",
     "cypress": "cypress open"
+  },
+  "author": "Jean-Philippe Tissot",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^5.3.0",
+    "rimraf": "3.0.2"
   }
 }

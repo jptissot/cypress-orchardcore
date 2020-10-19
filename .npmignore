@@ -1,20 +1,7 @@
-*.log
-npm-debug.log*
-
-# Coverage directory used by tools like istanbul
-coverage
-.nyc_output
-
-# Dependency directories
-node_modules
-
-# project files
-src
-test
-.github
-CHANGELOG.md
-.editorconfig
-.eslintignore
-.eslintrc
-.babelrc
-.gitignore
+*
+!README.md
+!index.js
+!index.mjs
+!utils.js
+!utils.mjs
+!LICENSE

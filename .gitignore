@@ -35,4 +35,8 @@ node_modules/
 # Optional npm cache directory
 .npm
 
-dist
+# build files
+/index.js
+/index.mjs
+/utils.js
+/utils.mjs
