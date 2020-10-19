@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import {generateTenantInfo} from '../../../src/utils';
+import {generateTenantInfo} from '../../../utils';
 
 describe("Blog Theme Test", function() {
   let tenant;

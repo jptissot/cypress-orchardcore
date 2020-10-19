@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+// import the index file defined as the main file in the root package.json
 require('../../..');
 
 // Alternatively you can use CommonJS syntax:
