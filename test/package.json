@@ -1,13 +1,12 @@
 {
   "private": "true",
   "scripts": {
-    "oc:build": "node -e \"require('./run_cypress').build('./OrchardCore.Cypress.Web')\"",
-    "oc:clean": "node -e \"require('./run_cypress').clean('./OrchardCore.Cypress.Web')\"",
-    "oc:host": "node -e \"require('./run_cypress').host('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
-    "test": "node -e \"require('./run_cypress').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
-    "test:clean": "node -e \"require('./run_cypress').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll', true)\"",
-    "test:clean-build": "node -e \"require('./run_cypress').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll', true, true)\"",
-    "cypress:run": "cypress run",
+    "oc:build": "node -e \"require('../test-runner').build('./OrchardCore.Cypress.Web')\"",
+    "oc:clean": "node -e \"require('../test-runner').clean('./OrchardCore.Cypress.Web')\"",
+    "oc:host": "node -e \"require('../test-runner').host('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
+    "test": "node -e \"require('../test-runner').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll')\"",
+    "test:clean": "node -e \"require('../test-runner').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll', true)\"",
+    "test:clean-build": "node -e \"require('../test-runner').e2e('./OrchardCore.Cypress.Web', 'OrchardCore.Cypress.Web.dll', true, true)\"",
     "cypress": "cypress open"
   },
   "author": "Jean-Philippe Tissot",
