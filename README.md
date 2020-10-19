@@ -13,8 +13,8 @@ Install this package by running `npm install cypress-orchardcore`
 ### Load the package in cypress support index file.
 
 ```javascript
-  // cypress/support/index.js
-  import 'cypress-orchardcore'
+// cypress/support/index.js
+import 'cypress-orchardcore'
 ```
 
 ### Orchard admin credentials
@@ -22,14 +22,14 @@ Install this package by running `npm install cypress-orchardcore`
 First thing to do to use this package is to add the credentials to be used to interact with OrchardCore. These credentials must be added to the `cypress.json`  config file under the `orchard` key.
 
 ```json
-  {
-    "baseUrl": "https://localhost:5001",
-    "orchard": {
-      "username":"admin",
-      "email": "admin@orchard.com",
-      "password": "Orchard1!"
-    }
+{
+  "baseUrl": "https://localhost:5001",
+  "orchard": {
+    "username":"admin",
+    "email": "admin@orchard.com",
+    "password": "Orchard1!"
   }
+}
 ```
 
 ### Orchard default tenant 
@@ -39,22 +39,22 @@ This library assumes that you will be testing OrchardCore by leveraging the [Ten
 To do so we suggest you create a test named `integration\000-setup-saas-site.js` with the following contents.
 
 ```javascript
-  /// <reference types="Cypress" />
+/// <reference types="Cypress" />
 
-  const sassTenant = {
-    name: "Testing SaaS",
-    setupRecipe: "SaaS",
-  }
+const sassTenant = {
+  name: "Testing SaaS",
+  setupRecipe: "SaaS",
+}
 
-  describe("Default tenant setup using SaaS recipe", function() {
-    it("Setup default tenant", function() {
-      cy.visit("/");
-      cy.setupSite(sassTenant);
-      cy.login()
-      // this is required to increase paging in the Tenants list page. Since we will be creating a lot of tenants during out testing.
-      cy.setPageSize(sassTenant, "100");
-    });
+describe("Default tenant setup using SaaS recipe", function() {
+  it("Setup default tenant", function() {
+    cy.visit("/");
+    cy.setupSite(sassTenant);
+    cy.login()
+    // this is required to increase paging in the Tenants list page. Since we will be creating a lot of tenants during out testing.
+    cy.setPageSize(sassTenant, "100");
   });
+});
 ```
 
 
@@ -64,33 +64,32 @@ Since we need to create tenants to test OrchardCore, it is recommended to use cy
 We recommend you use 1 tenant for each `describe()`
 
 ```javascript
-  /// <reference types="Cypress" />
-  import { generateTenantInfo } from 'cypress-orchardcore/utils';
+/// <reference types="Cypress" />
+import { generateTenantInfo } from 'cypress-orchardcore/utils';
 
-  describe("VueForm Tests", function() {    
-    let tenant;
+describe("VueForm Tests", function() {    
+  let tenant;
 
-    before(() => {
-        // generate a tenant for all tests below
-        tenant = generateTenantInfo("SetupRecipeName")
-        cy.newTenant(tenant);
-        cy.login(tenant);
-        cy.uploadRecipeJson(tenant, "fixturefile.json");
-    })
+  before(() => {
+      // generate a tenant for all tests below
+      tenant = generateTenantInfo("SetupRecipeName")
+      cy.newTenant(tenant);
+      cy.login(tenant);
+      cy.uploadRecipeJson(tenant, "fixturefile.json");
+  })
 
-    it("DoesSomething", function() {
-      cy.visitContent(tenant, "<contentitemid>");
-      //...
-    })
+  it("DoesSomething", function() {
+    cy.visitContent(tenant, "<contentitemid>");
+    //...
+  })
 
-    it("DoesSomethingElse", function() {
-      
-      cy.visitContent(tenant, "<contentitemid>");
-      //...
+  it("DoesSomethingElse", function() {
+    
+    cy.visitContent(tenant, "<contentitemid>");
+    //...
 
-    })
-  });
-
+  })
+});
 ```
 
 ## Commands
