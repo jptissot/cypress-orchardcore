@@ -1,4 +1,5 @@
 # Cypress OrchardCore
+![Build and Test](https://github.com/jptissot/cypress-orchardcore/workflows/Build%20and%20Test/badge.svg) [![npm version](https://badge.fury.io/js/cypress-orchardcore.svg)](https://badge.fury.io/js/cypress-orchardcore) 
 
 A collection of cypress commands for interacting with [OrchardCore CMS](https://github.com/OrchardCMS/OrchardCore).
 
