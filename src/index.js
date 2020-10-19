@@ -20,6 +20,6 @@ Cypress.Commands.add('visitAdmin', ({ prefix }) => {
   cy.visit(`${prefix}/Admin`);
 });
 
-Cypress.Commands.add('visitTenantPage', ({ prefix }, url) => {
+Cypress.Commands.add('visitTenantPage', ({ prefix }, url='') => {
   cy.visit(`${prefix}/${url}`);
 });
