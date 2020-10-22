@@ -5,9 +5,12 @@ Cypress.Commands.add("login", function({ prefix = ""}={}) {
   cy.get("#Password").type(config.password);
   cy.get("form").submit();
 });
+Cypress.Commands.add("visitTenantList", () => {
+  cy.visit("/Admin/Tenants");
+})
 
 Cypress.Commands.add("gotoTenantSetup", ({ name }) => {
-  cy.visit("/Admin/Tenants");
+  cy.visitTenantList();
   cy.get(`#btn-setup-${name}`).click();
 });
 
@@ -37,13 +40,13 @@ Cypress.Commands.add('newTenant', function(tenantInfo) {
   cy.setupSite(tenantInfo);
 });
 
-Cypress.Commands.add("createTenant", ({ name, prefix, setupRecipe, description='' }) => {
+Cypress.Commands.add("createTenant", ({ name, prefix, setupRecipe, description }) => {
   // We create tenants on the SaaS tenant
-  cy.visit("/Admin/Tenants");
+  cy.visitTenantList();
   // CreateTenant -- todo: improve selector in OC admin
   cy.get('form > .row > .form-group > .btn-group > .btn').click()
   cy.get("#Name").type(name, {force:true});
-  cy.get("#Description").type(`Recipe: ${setupRecipe}. ${description}`, {force:true});
+  cy.get("#Description").type(`Recipe: ${setupRecipe}. ${description || ''}`, {force:true});
   cy.get("#RequestUrlPrefix").type(prefix, {force:true});
   cy.get("#RecipeName").select(setupRecipe);
   cy.get("#DatabaseProvider").select('Sqlite')
