@@ -5,11 +5,12 @@ function uuidv4() {
   );
 }
 
-export function generateTenantInfo(setupRecipeName) {
+export function generateTenantInfo(setupRecipeName, description) {
   var uniqueName = uuidv4();
   return {
       name: uniqueName,
       prefix: uniqueName,
-      setupRecipe: setupRecipeName
+      setupRecipe: setupRecipeName,
+      description
   }
 }

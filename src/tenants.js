@@ -37,13 +37,13 @@ Cypress.Commands.add('newTenant', function(tenantInfo) {
   cy.setupSite(tenantInfo);
 });
 
-Cypress.Commands.add("createTenant", ({ name, prefix, setupRecipe }) => {
+Cypress.Commands.add("createTenant", ({ name, prefix, setupRecipe, description='' }) => {
   // We create tenants on the SaaS tenant
   cy.visit("/Admin/Tenants");
   // CreateTenant -- todo: improve selector in OC admin
   cy.get('form > .row > .form-group > .btn-group > .btn').click()
   cy.get("#Name").type(name, {force:true});
-  cy.get("#Description").type(`Setup using the ${setupRecipe} recipe`, {force:true});
+  cy.get("#Description").type(`Recipe: ${setupRecipe}. ${description}`, {force:true});
   cy.get("#RequestUrlPrefix").type(prefix, {force:true});
   cy.get("#RecipeName").select(setupRecipe);
   cy.get("#DatabaseProvider").select('Sqlite')
