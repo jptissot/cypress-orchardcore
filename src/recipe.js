@@ -1,11 +1,8 @@
 
-Cypress.Commands.add("runRecipe", ({ prefix }, filterValue) => {
+Cypress.Commands.add("runRecipe", ({ prefix }, recipeName) => {
   cy.visit(`${prefix}/Admin/Recipes`);
-  cy.get(`[data-filter-value*="${filterValue}"]`)
-    .find('a:contains("Run")')
-    .first()
-    .click();
-  cy.get("#modalOkButton").click();
+  cy.get(`#btn-run-${recipeName}`).click();
+  cy.btnModalOkClick();
 });
 
 Cypress.Commands.add("uploadRecipeJson", ({ prefix }, fixturePath) => {

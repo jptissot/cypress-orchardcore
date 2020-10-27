@@ -3,7 +3,7 @@
 
 A collection of cypress commands for interacting with [OrchardCore CMS](https://github.com/OrchardCMS/OrchardCore).
 
-This package is currently tested against OrchardCore version `1.0.0-rc2-14918`.
+This package is currently tested against OrchardCore version `1.0.0-rc2-15133`.
 
 ## Installation
 
