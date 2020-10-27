@@ -1,5 +1,5 @@
-Cypress.Commands.add("setPageSize", ({ prefix = '' }, size) => {
-  cy.visitGeneralSettings();
+Cypress.Commands.add("setPageSize", (tenantInfo, size) => {
+  cy.visitGeneralSettings(tenantInfo);
   cy.get('#ISite_PageSize')
     .clear()
     .type(size);

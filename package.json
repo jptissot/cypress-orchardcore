@@ -1,6 +1,6 @@
 {
   "name": "cypress-orchardcore",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jean-Philippe Tissot",
   "description": "Cypress commands for Orchard Core",
   "license": "MIT",

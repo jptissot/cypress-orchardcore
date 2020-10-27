@@ -1,4 +1,4 @@
-Cypress.Commands.add('visitGeneralSettings', function() {
+Cypress.Commands.add('visitGeneralSettings', function({ prefix = '' }) {
   cy.visit(`${prefix}/Admin/Settings/general`);
 });
 
