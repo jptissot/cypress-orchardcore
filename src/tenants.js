@@ -3,7 +3,7 @@ Cypress.Commands.add("login", function({ prefix = ""}={}) {
   cy.visit(`${prefix}/login`);
   cy.get("#UserName").type(config.username);
   cy.get("#Password").type(config.password);
-  cy.get("form").submit();
+  cy.get("#UserName").closest('form').submit();
 });
 Cypress.Commands.add("visitTenantList", () => {
   cy.visit("/Admin/Tenants");
