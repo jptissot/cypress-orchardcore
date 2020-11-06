@@ -1,3 +1,7 @@
+# Archive notice
+
+This code was moved in the OrchardCore project https://github.com/OrchardCMS/OrchardCore/tree/dev/test/Functional/cypress-commands. Updates will be maintained there.
+
 # Cypress OrchardCore
 ![Build and Test](https://github.com/jptissot/cypress-orchardcore/workflows/Build%20and%20Test/badge.svg) [![npm version](https://badge.fury.io/js/cypress-orchardcore.svg)](https://badge.fury.io/js/cypress-orchardcore) 
 
